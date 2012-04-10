@@ -1,0 +1,47 @@
+<div class="frame">
+  <div class="ballOne">
+    <span id="ballOnePins<%= frame.number %>" class="pinsKnockedDown">
+      <%- if frame.strike? -%>
+      X
+      <%- else -%>
+        <%- if frame.pins_knocked_down_by_ball_one.present? -%>
+        <%= frame.pins_knocked_down_by_ball_one %>
+        <%- else -%>
+        &nbsp;
+        <%- end -%>
+      <%- end -%>
+    </span>
+  </div>
+  <div class="ballTwo">
+    <span id="ballTwoPins<%= frame.number %>" class="pinsKnockedDown">
+      <%- if frame.spare? -%>
+      /
+      <%- else -%>
+        <%- if frame.pins_knocked_down_by_ball_two.present? -%>
+        <%= frame.pins_knocked_down_by_ball_two %>
+        <%- else -%>
+        &nbsp;
+        <%- end -%>
+      <%- end -%>
+    </span>
+  </div>
+  <%- if frame.last? -%>
+  <div class="ballThree">
+    <span id="ballThreePins" class="pinsKnockedDown">
+      <%- if frame.next_frame.pins_knocked_down_by_ball_one == 10 -%>
+      X
+      <%- else -%>
+      <%- if frame.next_frame.pins_knocked_down_by_ball_one.present? -%> 
+      <%= frame.next_frame.pins_knocked_down_by_ball_one %>
+      <%- else -%>
+      &nbsp;
+      <%- end -%>
+      <%- end -%>
+    </span>
+  </div>
+  <%- end -%>
+
+  <div class="frameScore">
+    <%= frame.score %>
+  </div>
+</div>

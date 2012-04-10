@@ -1,0 +1,25 @@
+<div id="bowlingGameScore">
+  <%= render @game.game_frames %>
+</div>
+
+<%= display_notice %>
+
+<div id="totalScore">
+  Total Score: <%= @game.score %>
+</div>
+
+
+<div id="controls">
+  <%- if @game.finished? -%>
+    <p>THE GAME HAS FINISHED</p>
+    <%= link_to "List of Games", games_path, :class => "button"%>
+  <%- else -%>
+    <%= form_for @game do |game| %>
+      <%= label_tag      :pins_to_knock_down, "Pins to knock down:" %>
+      <%= text_field_tag :pins_to_knock_down, "" %>
+      <%= game.submit 'Roll!', :class => "button" %> 
+	  <%= link_to "List of Games", games_path, :class => "button"%>   
+    <%- end -%>
+  <%- end -%>
+</div>
+

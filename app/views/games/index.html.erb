@@ -1,0 +1,29 @@
+<h2>Listing games</h2>
+
+<%= display_notice %>
+
+<table>
+  <tr>
+	<th>Date</th>
+    <th>Score</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @games.each do |game| %>
+    <tr class="finished">
+  	<td><%= time_ago_in_words game.created_at %></td>
+      <td><%= game.score %></td>
+      <td><%= display_game_duration game %></td>
+      <td><%= link_to 'Show', game %></td>
+      <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+
+
+<%= link_to 'New Game', games_path, :method => :post, :class => "button"%>
