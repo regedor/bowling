@@ -1,200 +1,140 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
-*/
+body                { background-image: url(image_path('bg.jpg')); font-family: Tahoma, Helvetica, Arial, Sans-Serif;        }
+
+body > h1           { height:256px; width:256px; background-image:url(image_path('bowling.png'));margin: 0 auto;             }
+body > h1 > a       { display : table-cell;  height:256px; vertical-align : middle;  font-size: 1.3em; font-family: Verdana; }
+body > h1 > a       { text-shadow: 0px 0px 5px rgba(22,22,22,0.8); text-align: center; text-decoration: none;                }
+body > h1 > a       { letter-spacing: 0.1em; color: #d8aef0;                                                                 }
+body > h1 > a:hover { text-shadow: 0px -2px 8px rgba(22,22,22,0.8)                                                           }
+
+footer              { color:#d8aef0; font-size: 0.9em; width:654px; margin: 10px auto;                                       }
+footer a            { color:#d8aef0; text-decoration: none; font-weight:bold;                                                }
+
+#content            { width:654px; margin: 0 auto; background: #222; padding: 20px; font-size: 22px; color: #555;            }
+#content            { text-shadow: 0px 2px 3px #171717; -webkit-box-shadow: 0px 2px 3px #555;                                }
+#content            { -webkit-border-radius: 10px; -moz-border-radius: 10px; -moz-box-shadow: 0px 2px 3px #555;              }                                                                                                                    
+
+h2                  { font-size: 1.9em; letter-spacing: 0.1em; margin: 0 0 20px 0; text-align:center;                        }
+h2                  { color: #ecf; text-shadow: 1px 1px 1px #d8aef0;                                                         }
+
+div#newGame         { margin:30px;                                                                                           }
+div#notice          { margin:20px; border:1px solid #ccc; float:left; padding:5px 20px;                                      }
+div#bowlingGameScore{ clear:both; float:left;                                                                                }
+div.frame           { float:left; border:1px solid #ccc; margin-right:-1px; font-size:16px;                                  }
+div.ballOne         { float:left; margin-left:20px; border-left:1px solid #ccc; border-bottom:1px solid #ccc;                }
+div.ballOne         { border-right:1px solid #ccc; width:20px; text-align:center;                                            }
+span.pinsKnockedDown{ padding:4px;                                                                                           }
+div.ballTwo         { border-bottom:1px solid #ccc; float:left; width:20px; text-align:center;                               }
+div.ballThree       { float:left; border-left:1px solid #ccc; border-bottom:1px solid #ccc; width:20px;                      }
+div.frameScore      { clear:both; margin-left:10px; padding:10px 4px; height:20px; font-weight:bold; font-size:18px;         }
+div#totalScore      { clear:both; margin-top:20px; float:left; font-weight:bold;                                             }
+div#gamePad         { clear:both;                                                                                      }
+div#controls        { clear:both; min-height: 1.8em; margin-top:20px;                                                        }
+div#gameFinished    { float:left; clear:both;                                                                                }
+#pins_down          { padding:10px 10px; width:80px; background:#262626; color: #fff;                                        }
+#pins_down          { border-bottom: 1px double #171717; border-top: 1px double #171717;                                     }
+#pins_down          { border-left:1px double #333333; border-right:1px double #333333;                                       }                                                                                                                      
 
 
+a.icon       { opacity: 0.4; border-bottom: none; }
+a.icon:hover { opacity: 1.0; background-color: transparent; }
 
-body      { background-image: url(image_path('bg.jpg')); font-family: Tahoma, Helvetica, Arial, Sans-Serif; }
-body > h1 {  height:256px; width:256px; background-image:url(image_path('bowling.png'));margin: 0 auto; }
 
-body > h1 > a {
-  display : table-cell;
-  height:256px;
-  vertical-align : middle; 
-  font-size: 1.3em;
-  font-family: Verdana;
-  letter-spacing: 0.1em;
-  color: #d8aef0;
-  text-shadow: 0px 0px 5px rgba(22,22,22,0.8);
-  text-align: center;
+table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+}
+
+table a {
   text-decoration: none;
 }
 
-body > h1 > a:hover {text-shadow: 0px -2px 8px rgba(22,22,22,0.8)};
-
-
-footer   { color:#d8aef0; font-size: 0.9em; width:720px; margin: 10px auto;}
-footer a { color:#d8aef0; text-decoration: none; font-weight:bold;}
-
-
-
-
-
-
-#content { width:680px; margin: 0 auto; background: #222;  
-  padding: 20px;
-  font-size: 22px;
-  color: #555;
-  text-shadow: 0px 2px 3px #171717;
-  -webkit-box-shadow: 0px 2px 3px #555;
-  -moz-box-shadow: 0px 2px 3px #555;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+table th {
+  background: #131415;
+  color: #FFF;
+  padding: 6px;
 }
 
-h1{
-  font-size: 2.5em;
-  font-family: Georgia;
-  letter-spacing: 0.1em;
-  color: rgb(142,11,0);
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+table th a {
+  color: #FFF!important;
+  text-decoration: none;
 }
 
-div#newGame{
-  margin:30px;
+table th a:hover {
+  text-decoration: underline;
 }
 
-div#notice{
-  margin:20px;
-  border:1px solid #ccc;
-  float:left;
-  padding:5px 20px;
-
+table td.right {
+  text-align: right;
 }
 
-div#bowlingGameScore{
-  clear:both;
-  float:left
+table tr.even {
+  background: #1b1b1b!important;
 }
 
-div.frame{
-  float:left;
-  border:1px solid #ccc;
-  margin-right:-1px;
-  font-size:16px;
+table tr.even:hover,
+table tr.odd:hover {
+  background: #343434!important;
 }
 
-div.ballOne{
-  float:left;
-  margin-left:20px;
-  border-left:1px solid #ccc;
-  border-bottom:1px solid #ccc;
-  border-right:1px solid #ccc;
-  width:20px;
-  text-align:center;
+table tr.odd {
+  background: #202020;
 }
 
-span.pinsKnockedDown{
-  padding:4px;
+table td {
+  border: none;
+  padding: 5px;
+  vertical-align: top;
 }
 
-div.ballTwo{
-  border-bottom:1px solid #ccc;
-  float:left;
-  width:20px;
-  text-align:center;
+table td.actions {
+  width: 45px;
 }
-
-div.ballThree{
-  float:left;
-  border-left:1px solid #ccc;
-  border-bottom:1px solid #ccc;
-  width:20px;
-}
-
-div.frameScore{
-  clear:both;
-  margin-left:10px;
-  padding:10px 4px;
-  height:20px;
-  font-weight:bold;
-  font-size:18px;
-}
-
-div#totalScore{
-  clear:both;
-  margin-top:20px;
-  float:left;
-  font-weight:bold;
-}
-
-div#controls{ clear:both; }
-
-div#gameFinished{
-  float:left;
-  clear:both;
-}
-
-
-
-
 
 .button {
-   border: 1px solid #0a3c59;
-   background: #3e779d;
-   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
-   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
-   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
-   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
-   background: -o-linear-gradient(top, #65a9d7, #3e779d);
-   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
-   padding: 10.5px 21px;
-   -webkit-border-radius: 6px;
-   -moz-border-radius: 6px;
-   border-radius: 6px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   text-shadow: #7ea4bd 0 1px 0;
-   color: #06426c;
-   font-size: 14px;
-   font-family: helvetica, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
+  border: 1px solid #3c0e82;
+  background: #9958bf;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d8aef0), to(#9958bf));
+  background: -webkit-linear-gradient(top, #d8aef0, #9958bf);
+  background: -moz-linear-gradient(top, #d8aef0, #9958bf);
+  background: -ms-linear-gradient(top, #d8aef0, #9958bf);
+  background: -o-linear-gradient(top, #d8aef0, #9958bf);
+  background-image: -ms-linear-gradient(top, #d8aef0 0%, #9958bf 100%);
+  padding: 10.5px 21px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+  -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+  box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+  text-shadow: #916ba8 0 1px 0;
+  color: #161417;
+  font-size: 14px;
+  font-family: helvetica, serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
 .button:hover {
-   border: 1px solid #0a3c59;
-   text-shadow: #1e4158 0 1px 0;
-   background: #3e779d;
-   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
-   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
-   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
-   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
-   background: -o-linear-gradient(top, #65a9d7, #3e779d);
-   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
-   color: #fff;
-   }
+  border: 1px solid #3c0e82;
+  text-shadow: #312538 0 1px 0;
+  background: #9958bf;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d8aef0), to(#9958bf));
+  background: -webkit-linear-gradient(top, #d8aef0, #9958bf);
+  background: -moz-linear-gradient(top, #d8aef0, #9958bf);
+  background: -ms-linear-gradient(top, #d8aef0, #9958bf);
+  background: -o-linear-gradient(top, #d8aef0, #9958bf);
+  background-image: -ms-linear-gradient(top, #d8aef0 0%, #9958bf 100%);
+  color: #fff;
+}
 .button:active {
-   text-shadow: #1e4158 0 1px 0;
-   border: 1px solid #0a3c59;
-   background: #65a9d7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
-   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
-   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-   background: -o-linear-gradient(top, #3e779d, #65a9d7);
-   background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
-   color: #fff;
-   }
-
-#pins_to_knock_down {
-padding:10px 10px;
-width:100px;
-background:#262626;
-border-bottom: 1px double #171717;
-border-top: 1px double #171717;
-border-left:1px double #333333;
-border-right:1px double #333333;
-color: #fff;
-
+  text-shadow: #312538 0 1px 0;
+  border: 1px solid #3c0e82;
+  background: #d8aef0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9958bf), to(#9958bf));
+  background: -webkit-linear-gradient(top, #9958bf, #d8aef0);
+  background: -moz-linear-gradient(top, #9958bf, #d8aef0);
+  background: -ms-linear-gradient(top, #9958bf, #d8aef0);
+  background: -o-linear-gradient(top, #9958bf, #d8aef0);
+  background-image: -ms-linear-gradient(top, #9958bf 0%, #d8aef0 100%);
+  color: #fff;
 }

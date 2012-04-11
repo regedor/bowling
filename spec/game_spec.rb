@@ -37,11 +37,11 @@ describe Game do
   end
   
   it "should calculate a perfect game" do
-    12.times { roll_strike! }
+    12.times { roll_strike! }    
     @game.score.should == 300
   end
   
-  it "#score should calculate the current game score" do
+  it "should calculate the current game score" do
     @game.roll!(10)
     @game.roll!(10)
     @game.roll!(3)
@@ -50,11 +50,16 @@ describe Game do
     @game.score.should == 73
   end
     
-  it "#score should include the frame bonus in case of spare" do
+  it "should include the frame bonus in case of spare" do
     repeat_roll!(18,2)
     roll_spare!
     @game.roll!(3)
     @game.score.should == 18*2 + 10 + 3
+  end
+  
+  it "should end" do
+    repeat_roll!(20,2)
+    @game.finished?.should == true
   end
   
   ## Helper methods

@@ -33,9 +33,9 @@ class Frame < ActiveRecord::Base
 
   def finished?
     if self.last?
-      self.pins_knocked_down_by_ball_two && (!self.spare? || self.next_frame.pins_knocked_down_by_ball_one)
+      return(self.pins_knocked_down_by_ball_two && ((!self.spare_or_strike?) || self.next_frame.pins_knocked_down_by_ball_one))
     else 
-      self.strike? || self.pins_knocked_down_by_ball_two
+      return(self.strike? || self.pins_knocked_down_by_ball_two)
     end
   end
 
@@ -43,8 +43,12 @@ class Frame < ActiveRecord::Base
     self.pins_knocked_down_by_ball_one == 10
   end
   
+  def spare_or_strike?
+    (self.pins_knocked_down_by_ball_one || 0) + (self.pins_knocked_down_by_ball_two || 0) > 9
+  end
+  
   def spare?
-    (self.pins_knocked_down_by_ball_one || 0) + (self.pins_knocked_down_by_ball_two || 0) == 10
+    !strike? && spare_or_strike?
   end
 
   def spare_bonus

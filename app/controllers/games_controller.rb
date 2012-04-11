@@ -1,7 +1,10 @@
 class GamesController < ApplicationController
 
+  def about
+  end
+  
   def index
-    @games = Game.all
+    @games = Game.last(10).reverse
   end
 
   def show
@@ -20,7 +23,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     begin
-      flash[:notice] = view_context.display_roll_results @game.roll!(params[:pins_to_knock_down].to_i)
+      flash[:notice] = view_context.display_roll_results @game.roll!(params[:pins_down].to_i)
     rescue
       flash[:notice] = "Invalid Play! Don't cheat please."
     end

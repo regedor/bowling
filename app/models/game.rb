@@ -4,10 +4,12 @@ class Game < ActiveRecord::Base
   after_initialize :setup_game
 
   def roll!(number_of_pins)
-    frame = self.find_current_frame
-    frame.roll! number_of_pins
-    self.current_frame_number += 1 if frame.finished?  
-    self.save
+    if !finished?
+      frame = self.find_current_frame
+      frame.roll! number_of_pins
+      self.current_frame_number += 1 if frame.finished?  
+      self.save
+    end
   end
 
   def finished?

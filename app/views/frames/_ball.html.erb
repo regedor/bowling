@@ -1,0 +1,13 @@
+<div class="<%= ball %>">
+  <span id="<%= ball %>Pins<%= frame.number %>" class="pinsKnockedDown">
+    <%- if frame.strike? -%>
+    <%= bonus_char %>
+    <%- else -%>
+      <%- if frame.pins_knocked_down_by_ball_one.present? -%>
+      <%= frame.pins_knocked_down_by_ball_one %>
+      <%- else -%>
+      &nbsp;
+      <%- end -%>
+    <%- end -%>
+  </span>
+</div>

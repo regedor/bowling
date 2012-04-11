@@ -16,4 +16,24 @@ module ApplicationHelper
   def display_roll_results(result)
     "Nice played!"
   end
+  
+  def display_ball(ball_name,frame_number, ball, bonus, bonus_char)
+    out = "<div class='#{ball_name}'><span id='#{ball_name}Pins#{frame_number}' class='pinsKnockedDown'>"
+    out += if bonus
+      bonus_char
+    elsif ball.present?
+      ball.to_s
+    else
+      "&nbsp;"
+    end
+    (out + "</span></div>").html_safe
+  end  
+  
+  def link_to_icon(icon_name, url_or_object, options={})
+    options.merge!({ :class => "icon #{icon_name}" })
+
+    link_to(image_tag("icons/#{icon_name}.png", { :title => icon_name }),
+    url_or_object,
+    options)
+  end
 end

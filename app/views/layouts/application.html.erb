@@ -11,6 +11,11 @@
   <h1><%= link_to "Bowling Game", root_path%></h1>
   <div id="content">	
     <%= yield %>
+    <div id="controls">
+	  <%= link_to 'New Game', games_path, :method => :post, :class => "button"%>
+	  <%= link_to "List of Games", games_path, :class => "button"%>  
+	  <%= link_to 'About the Project', about_games_path, :class => "button" %>
+	</div>
   </div>
   <footer><%= display_footer %></footer>
 </body>
