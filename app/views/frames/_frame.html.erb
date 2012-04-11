@@ -1,7 +1,7 @@
 <div class="frame">
   <%=display_ball("ballOne",frame.number, frame.pins_knocked_down_by_ball_one, frame.strike?, "X")%>
   <% if frame.strike? && frame.pins_knocked_down_by_ball_two == 10 %>
-    <%= display_ball("ballTwo",frame.number, frame.pins_knocked_down_by_ball_two, true, "X")%>
+    <%= display_ball("ballTwo","", frame.pins_knocked_down_by_ball_two, true, "X")%>
   <% else %>
     <%=display_ball("ballTwo",frame.number, frame.pins_knocked_down_by_ball_two, frame.spare?, "/")%>
   <% end %>
