@@ -21,15 +21,15 @@ class Game < ActiveRecord::Base
   end
   
   def find_current_frame
-    self.frames[self.current_frame_number - 1]
+    self.frames.order(:number)[self.current_frame_number - 1]
   end
   
   def game_frames
-    self.frames[0..9]
+    self.frames.order(:number)[0..9]
   end
   
   def find_frame_by_number(number)
-    self.frames[number - 1]
+    self.frames.order(:number)[number - 1]
   end
 
   def setup_game

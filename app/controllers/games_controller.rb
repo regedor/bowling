@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
   
   def index
-    @games = Game.last(10).reverse
+    @games = Game.order(:created_at).last(10)
   end
 
   def show
