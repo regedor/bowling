@@ -13,7 +13,7 @@ describe Game do
     @game.frames.map(&:number).should == [1,2,3,4,5,6,7,8,9,10,11]
   end
   
-  it "should calculate a gutter game" do
+  it "should calculate a zero points game" do
     repeat_roll!(20, 0)
     @game.score.should == 0
   end
@@ -41,7 +41,7 @@ describe Game do
     @game.score.should == 300
   end
   
-  it "should calculate the current game score" do
+  it "should calculate the score during the game" do
     @game.roll!(10)
     @game.roll!(10)
     @game.roll!(3)
@@ -50,14 +50,14 @@ describe Game do
     @game.score.should == 73
   end
     
-  it "should include the frame bonus in case of spare" do
+  it "should calcualte correct score when there is spare bonus in last frame" do
     repeat_roll!(18,2)
     roll_spare!
     @game.roll!(3)
     @game.score.should == 18*2 + 10 + 3
   end
   
-  it "should end" do
+  it "should finish after rolling 20 balls" do
     repeat_roll!(20,2)
     @game.finished?.should == true
   end

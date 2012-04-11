@@ -10,7 +10,7 @@ class Frame < ActiveRecord::Base
       frame = self.next_frame
       frame.pins_knocked_down_by_ball_one = number_of_pins
       frame.save      
-    elsif (self.pins_knocked_down_by_ball_one + number_of_pins < 11) or self.last?
+    elsif (self.pins_knocked_down_by_ball_one + number_of_pins < 11) or (self.last? && self.strike?)
       self.pins_knocked_down_by_ball_two = number_of_pins
     else
       raise "InvalidPlay"
